@@ -87,11 +87,11 @@ export const OnBoarding = ({ user, users }) => {
 
     const fieldsRegister = [
         { title: "Create Account" },
-        { none: null },
-        { name: 'username', label: 'Username or Email', type: 'text' },
+        { name: 'fullName', label: 'FullName', type: 'text' },
+        { name: 'username', label: 'Username', type: 'text' },
+        { name: 'email', label: 'Email', type: 'text' },
+        { name: 'bio', label: 'Bio', type: 'paragraph' },
         { name: 'password', label: 'Password', type: 'password' },
-        { none: null },
-        { none: null },
         {
             submitLabel: "Register",
             cancelLabel: "Login instead"
