@@ -82,38 +82,58 @@ router.get("/api/getUser/:id", verifyToken, async (req, res) => {
     res.json(findUser);
 });
 
-//Create User
+// Create User
 router.post("/api/registerUser", async (req, res) => {
-    const communityDetails = req.body;
-    const images = req.body.images; // Extract images from the request body
+    const userDetails = req.body; // Assuming you have user details in the request body
 
     try {
-        console.log('Received communityDetails:', communityDetails);
+        // Hash the user's password before storing it in the database
+        const hashedPassword = await bcrypt.hash(userDetails.password, 10);
 
-        const imageIds = [];
-
-        // Handle community images
-        if (images && images.length > 0) {
-            for (const imageData of images) {
-                const image = new ImageSchema({ data: imageData, source: { userId: req.user.userId } });
-                const savedImage = await image.save();
-                imageIds.push(savedImage._id);
-            }
-        }
-
-        const community = new CommunitySchema({
-            ...communityDetails,
-            images: imageIds, // Associate the uploaded image IDs with the community
-            moderator: req.user.userId,
-            admin: req.user.userId,
+        // Create a new user using the UserSchema
+        const newUser = new UserSchema({
+            username: userDetails.username,
+            password: hashedPassword, // Store the hashed password
+            // Add other user details as needed
         });
-        await community.save();
 
-        console.log('Community created:', community);
-        res.json({ community });
+        await newUser.save();
+
+        // Exclude the 'password' property from the user object
+        const { password, ...userWithoutPassword } = newUser._doc;
+
+        // Generate a JWT token
+        const token = jwt.sign({ userId: newUser._id, role: newUser.role }, secretKey, { expiresIn: "1h" });
+
+        // Create session-related items
+        const signedInAt = new Date();
+        const expiresAt = new Date(signedInAt);
+        expiresAt.setHours(expiresAt.getHours() + 4); // Expires 4 hours after login
+
+        // Update the session field in the user document
+        await UserSchema.updateOne(
+            { _id: newUser._id },
+            {
+                $set: {
+                    'session.signedInAt': signedInAt,
+                    'session.expiresAt': expiresAt,
+                    'session.token': token,
+                },
+            }
+        );
+
+        res.json({
+            user: userWithoutPassword,
+            token,
+            session: {
+                signedInAt,
+                expiresAt,
+                token, // This could be a session token if needed
+            },
+        });
     } catch (error) {
-        console.error('Error creating community:', error);
-        res.status(500).json({ error: `Sorry, Could not create community: ${error}` });
+        console.error('Error creating user:', error);
+        res.status(500).json({ error: 'Sorry, Could not create user: ' + error.message });
     }
 });
 
