@@ -21,6 +21,7 @@
   <p align="center">
     CodeGenius is a Question-and-Answer forum for students and lecturers.
     <br />
+    <br />
     Eddie Sosera
     <br />
     <br />
@@ -29,9 +30,9 @@
     <br />
     <a href="add The demo Video Link here">View Demo</a>
     ·
-    <a href="bug report link">Report Bug</a>
+    <a href="https://github.com/eddiesosera/codegenius/issues">Report Bug</a>
     ·
-    <a href="Maybe">Request Feature</a>
+    <a href="https://github.com/eddiesosera/codegenius/issues">Request Feature</a>
   </p>
   <br />
 </div>
@@ -162,8 +163,6 @@ The admin’s view gives the admin special permission to delete ant user’s que
 
 #### ERD
 
-<br/>
-
 ![Entity Relationship Diagram][erd]
 
 <br />
@@ -197,7 +196,7 @@ Generally the project was not challenging as we did a similar project in our pre
 
 ## Conclusion
 
-#### How to Contribute
+### How to Contribute
 
 1. **Fork the repository:**
 
@@ -259,7 +258,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
 
 <div style="display: flex; justify-content: space-between;">
   <div style="text-align: center;">
-    <a href="https://github.com/eddiesosera/Term-4-Group-2---Project">
+    <a href="https://github.com/eddiesosera/">
       <img src="https://github.com/eddiesosera.png" alt="eddie Sosera" width="100px">
     </a>
     <br>
@@ -268,7 +267,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
   <br />
 
   <div style="text-align: center;">
-    <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
+    <a href="https://github.com/CSWilder02/">
       <img src="https://github.com/CSWilder02.png" alt="CS Strijdom" width="100px">
     </a>
     <br>
@@ -277,7 +276,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
   <br />
   
   <div style="text-align: center;">
-    <a href="https://github.com/DupieM/Term-4-Group-2---Project">
+    <a href="https://github.com/DupieM/">
       <img src="https://github.com/DupieM.png" alt="Mariné Du Plessis" width="100px">
     </a>
     <br>
@@ -286,7 +285,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
   <br />
   
   <div style="text-align: center;">
-    <a href="https://github.com/BladeyBoy54/Term-4-Group-2---Project">
+    <a href="https://github.com/BladeyBoy54/">
       <img src="https://github.com/BladeyBoy54.png" alt="Bladen Lehnberg" width="100px">
     </a>
     <br>
@@ -309,6 +308,8 @@ Distributed under the MIT License. See [License](https://opensource.org/license/
 
 **LinkedIn** - [@eddiesosera](https://www.linkedin.com/in/eddiesosera/), or
 [Visit website](https://engineeredimagination.co.za).
+
+<br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
