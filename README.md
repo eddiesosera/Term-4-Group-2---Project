@@ -1,8 +1,17 @@
+<br />
+
+![GitHub repo size](https://img.shields.io/github/repo-size/eddiesosera/codegenius?color=%23FF4C54)
+![GitHub watchers](https://img.shields.io/github/watchers/eddiesosera/codegenius?color=%23FFA191)
+![GitHub language count](https://img.shields.io/github/languages/count/eddiesosera/codegenius?color=%231EBBBA)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/eddiesosera/codegenius?color=%234E54AD)
+
 <a name="readme-top"></a>
-[![Contributors][contributors-shield]][contributors-url] 
-[![Forks][Forks]][Forks-url]
-[![Starsgazers][Stars]][Stars-url]
-# 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks]][forks-url]
+[![Starsgazers][stars]][stars-url]
+
+#
+
 <div align="center">
   <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
     <img src="Class Work\Logo\CodeGeniusLogoFull.svg" alt="CodeGenius </>" width="200" height="auto">
@@ -25,37 +34,33 @@
   <br />
 </div>
 
-
 ## About this Project
-
 
 CodeGenius is a robust and fully-developed Full MERN Stack Application that serves as a dynamic platform for fostering collaboration between students and lecturers. With a focus on facilitating the exchange of development-specific knowledge and expertise, CodeGenius empowers users to post questions, provide answers, and engage in a rich learning environment.
 
 ## Table of Contents
 
+- [Built With](#built-with)
 
--  [Built With](#built-with)
+- [Installation](#installation)
 
--  [Installation](#installation)
+- [UI Designs](#ui-designs)
 
--  [UI Designs](#ui-designs)
+- [Credits](#credits)
 
--  [Credits](#credits)
-
--  [Features](#features)
-
+- [Features](#features)
 
 ## Built With
-* [![React][React.js]][React-url]
-* [![Express][Express.js]][Express-url]
-* [![Mongodb][MongoDB]][MongoDB-url]
-* [![jwt][JWT]][jwt-url]
-* [![bootstrap][Bootstrap]][Bootstrap-url]
-* [![nodemon][Nodemon]][Nodemon-url]
+
+- [![React][react.js]][react-url]
+- [![Express][express.js]][express-url]
+- [![Mongodb][mongodb]][mongodb-url]
+- [![jwt][jwt]][jwt-url]
+- [![bootstrap][bootstrap]][bootstrap-url]
+- [![nodemon][nodemon]][nodemon-url]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Installation
-
 
 1. Clone the repo
    ```sh
@@ -78,7 +83,7 @@ CodeGenius is a robust and fully-developed Full MERN Stack Application that serv
 
 ## UI Designs
 
-add Ui designs here 
+add Ui designs here
 
 ## Credits
 
@@ -120,8 +125,6 @@ add Ui designs here
 
 ---Link to other dependencies and tutorials---
 
-
-
 ## Features
 
 #### 1. **Profiles and Reliability Scores**
@@ -146,24 +149,22 @@ CodeGenius allows users to save their favorite questions for future reference. A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Express.js]: https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB
-[Express-url]: https://expressjs.com/
-[MongoDB]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
-[MongoDB-url]: https://www.mongodb.com/
-[JWT]: https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[express.js]: https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB
+[express-url]: https://expressjs.com/
+[mongodb]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
+[mongodb-url]: https://www.mongodb.com/
+[jwt]: https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens
 [jwt-url]: https://jwt.io/
-[Bootstrap]: https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com/
-[Nodemon]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
-[Nodemon-url]: https://nodemon.io/
+[bootstrap]: https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white
+[bootstrap-url]: https://getbootstrap.com/
+[nodemon]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
+[nodemon-url]: https://nodemon.io/
 [contributors-shield]: https://img.shields.io/github/contributors/CSWilder02/Term-4-Group-2---Project.svg?style=for-the-badge
 [contributors-url]: https://github.com/CSWilder02/Term-4-Group-2---Project/graphs/contributors
-[Forks]: https://img.shields.io/github/forks/CSWilder02/Term-4-Group-2---Project.svg?style=for-the-badge
-[Forks-url]: https://github.com/CSWilder02/Term-4-Group-2---Project/forks
-[Stars]: https://img.shields.io/github/stars/CSWilder02/Term-4-Group-2---Project.svg?style=for-the-badge
-[Stars-url]: https://github.com/CSWilder02/Term-4-Group-2---Project/stargazers
-[Eddie-img]: https://github.com/eddiesosera.png
+[forks]: https://img.shields.io/github/forks/CSWilder02/Term-4-Group-2---Project.svg?style=for-the-badge
+[forks-url]: https://github.com/CSWilder02/Term-4-Group-2---Project/forks
+[stars]: https://img.shields.io/github/stars/CSWilder02/Term-4-Group-2---Project.svg?style=for-the-badge
+[stars-url]: https://github.com/CSWilder02/Term-4-Group-2---Project/stargazers
+[eddie-img]: https://github.com/eddiesosera.png
