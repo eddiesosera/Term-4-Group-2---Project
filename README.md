@@ -19,9 +19,10 @@
   <h3 align="center">CodeGenius </h3>
 
   <p align="center">
-    The Future of Development QNA for anyone with a Coding problem 
+    CodeGenius is a Question-and-Answer forum for students and lecturers.
     <br />
     Eddie Sosera
+    <br />
     <br />
     <a href="https://github.com/eddiesosera/codegenius/blob/main/"><strong>Explore the docs</strong></a>
     <br />
@@ -39,7 +40,7 @@
 
 ![Banner][banner]
 
-CodeGenius is a robust and fully-developed Full MERN Stack Application that serves as a dynamic platform for fostering collaboration between students and lecturers. With a focus on facilitating the exchange of development-specific knowledge and expertise, CodeGenius empowers users to post questions, provide answers, and engage in a rich learning environment.
+CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dynamic platform for fostering collaboration between students and lecturers. With a focus on facilitating the exchange of development-specific knowledge and expertise, CodeGenius empowers users to post questions, provide answers, and engage in a rich learning environment.
 
 ## Table of Contents
 
@@ -135,14 +136,45 @@ add Ui designs here
 
 ## Features
 
-### Login and authentication
+### Homescreen
 
-<a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
-    <img src="https://github.com/eddiesosera/codegenius/blob/main/client/src/components/assets/readme/header.png" 
-    alt="CodeGenius Header" width="200" height="auto">
-  </a>
+![Homescreen][home]
+The homescreen displays all the questions which you can filter by upvotes and time (by default it shows the latest). You can answer other people’s questions by clicking upvote.
 
-The login screen enables admin users to log into the curious creative and remain logged in. With password encryption, this should be a breeze. The user can also choose to stay logged in and this is stored in preferences
+### Question Page
+
+![Question][question]
+The question page allows users to give an answer to the question and they can browse through other answers for help.
+Users can also reply to answers.
+
+### Create Question
+
+![Create Question][createquestion]
+The Create Question page allows users to create questions by filling in the form they can also add images with a size limit of 500kb.
+
+### Search Bar
+
+![Search Bar][searchbar]
+The search allows users to search anything from questions, users and topics. The most relevant results will be at the top. The orange button takes you to the question results page.
+
+### Search Results
+
+![Search Results][searchresults]
+The question results displays more than 5 results as seen in the question bar. Additionally the user can filter the type of results.
+
+### User Profile
+
+![User Profile][userprofile]
+The User Profile is a summary of the user’s information such reliability score, bio, questions asked, replies and answers.
+
+The reliability score is generated based on the user’s number of questions and the number of votes each question has.
+
+They have the option to edit their profile.
+
+### Admin
+
+![Admin][admin]
+The admin’s view gives the admin special permission to delete ant user’s question.
 
 <!-- #### 1. **Profiles and Reliability Scores**
 
@@ -192,4 +224,10 @@ CodeGenius allows users to save their favorite questions for future reference. A
 
 [banner]: client/src/components/assets/readme/banner.png
 [header]: client/src/components/assets/readme/header.png
-[image3]: ReadMeImg/slide3.png
+[home]: client/src/components/assets/readme/features/codegenius_feature_home.png
+[question]: client/src/components/assets/readme/features/codegenius_feature_question.png
+[createquestion]: client/src/components/assets/readme/features/codegenius_feature_createQuestion.png
+[searchbar]: client/src/components/assets/readme/features/codegenius_feature_searchBar.png
+[searchresults]: client/src/components/assets/readme/features/codegenius_feature_searchResults.png
+[userprofile]: client/src/components/assets/readme/features/codegenius_feature_userProfile.png
+[admin]: client/src/components/assets/readme/features/codegenius_feature_admin.png
