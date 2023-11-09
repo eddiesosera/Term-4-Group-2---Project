@@ -12,7 +12,7 @@
 
 #
 
-![Banner][banner]
+![Header][header]
 
 <div align="center">
 
@@ -36,7 +36,8 @@
 </div>
 
 ## About this Project
-![][]
+
+![Banner][banner]
 
 CodeGenius is a robust and fully-developed Full MERN Stack Application that serves as a dynamic platform for fostering collaboration between students and lecturers. With a focus on facilitating the exchange of development-specific knowledge and expertise, CodeGenius empowers users to post questions, provide answers, and engage in a rich learning environment.
 
