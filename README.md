@@ -36,6 +36,9 @@
   <br />
 </div>
 
+<br/>
+<br/>
+
 ## About this Project
 
 ![Banner][banner]
@@ -142,6 +145,7 @@ The admin’s view gives the admin special permission to delete ant user’s que
 - `Reliability score` system based on interaction.
 
 <br/>
+<br/>
 
 <!-- DEVELOPMENT PROCESS -->
 
@@ -161,10 +165,10 @@ The setup of the project was overal fun for me as I got the opportunity explore 
 
 #### Challenges
 
-Generally the project was not challenging as we did a similar project in our previous term, however the backend was a bit challenging as I had to tap in again with `Vanailla Javascript.`
+Generally the project was not challenging as we did a similar project in our previous term, however the backend was a bit challenging as I had to familiarize myself again with `Vanailla Javascript.`
 
-#### Object Mapping
-
+<br/>
+<br/>
 <!-- FINAL OUTCOMES -->
 
 ## Final Outcomes
@@ -172,6 +176,9 @@ Generally the project was not challenging as we did a similar project in our pre
 [Demonstration Video](https://youtube.com)
 
 <!-- CONCLUSION -->
+
+<br/>
+<br/>
 
 ## Conclusion
 
@@ -226,11 +233,11 @@ Generally the project was not challenging as we did a similar project in our pre
 
 ### Reporting Isssues
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/your-username/your-project/issues) on GitHub.
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/eddiesosera/codegeniust/issues) on GitHub.
 
 <!-- AUTHORS -->
 
-#### Authors
+### Authors
 
 <div style="display: flex; justify-content: space-between;">
   <div style="text-align: center;">
