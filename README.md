@@ -12,11 +12,9 @@
 
 #
 
+![header][header]
+
 <div align="center">
-  <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
-    <img src=[header]
-    alt="CodeGenius Header" width="200" height="auto">
-  </a>
 
   <h3 align="center">CodeGenius </h3>
 
