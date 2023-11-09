@@ -6,7 +6,7 @@ import { useToken } from '../../../../util/UseContext/loggedInUserContext';
 import { useNavigate } from 'react-router-dom';
 
 
-export const CardOptions = ({ question, scope, state }) => {
+export const CardOptions = ({ question, scope, state, user }) => {
     const navigateTo = useNavigate();
     let interactionState = useInteraction();
     const { token } = useToken();
@@ -116,6 +116,24 @@ export const CardOptions = ({ question, scope, state }) => {
                 {
                     options?.map((option, i) => {
                         if (scope === "private" || scope === option?.scope) {
+                            return (
+                                <div key={i} className={`cardOption ${option?.code === "danger" ? "danger" : option?.code === "action" && "action"}`} onClick={e => { option?.function(); setIsOptionsVisible(false); state && state(false) }}>
+                                    <span key={i} className={`material-icons material-icons.md-18 optionIcon ${option?.code === "danger" ? "dangerIcon" : option?.code === "action" && "actionIcon"}`}>
+                                        {option?.icon}
+                                    </span>
+                                    <div className='optionTitle'>{option?.title}</div>
+                                </div>
+                            )
+                        } else if (user?.role === "admin" && option?.title === "Delete") {
+                            return (
+                                <div key={i} className={`cardOption ${option?.code === "danger" ? "danger" : option?.code === "action" && "action"}`} onClick={e => { option?.function(); setIsOptionsVisible(false); state && state(false) }}>
+                                    <span key={i} className={`material-icons material-icons.md-18 optionIcon ${option?.code === "danger" ? "dangerIcon" : option?.code === "action" && "actionIcon"}`}>
+                                        {option?.icon}
+                                    </span>
+                                    <div className='optionTitle'>{option?.title} as admin</div>
+                                </div>
+                            )
+                        } else if (!scope && option?.title === "Copy Link" || option?.title === "Report") {
                             return (
                                 <div key={i} className={`cardOption ${option?.code === "danger" ? "danger" : option?.code === "action" && "action"}`} onClick={e => { option?.function(); setIsOptionsVisible(false); state && state(false) }}>
                                     <span key={i} className={`material-icons material-icons.md-18 optionIcon ${option?.code === "danger" ? "dangerIcon" : option?.code === "action" && "actionIcon"}`}>

@@ -84,7 +84,11 @@ router.get("/api/getUser/:id", verifyToken, async (req, res) => {
 
 // Create User
 router.post("/api/registerUser", async (req, res) => {
-    const userDetails = req.body; // Assuming you have user details in the request body
+    const userDetails = req.body;
+    if (!userDetails || !userDetails.password) {
+        return res.status(400).json({ error: 'Invalid request. Please provide a password.' });
+    }
+    const hashedPassword = await bcrypt.hash(userDetails.password, 10);
 
     try {
         // Hash the user's password before storing it in the database
@@ -108,16 +112,22 @@ router.post("/api/registerUser", async (req, res) => {
         // Create session-related items
         const signedInAt = new Date();
         const expiresAt = new Date(signedInAt);
-        expiresAt.setHours(expiresAt.getHours() + 4); // Expires 4 hours after login
+        if (isNaN(expiresAt)) {
+            return res.status(400).json({ error: 'Invalid date format for expiresAt.' });
+        }
+
+        expiresAt.setHours(expiresAt.getHours() + 4);
+        // Convert expiresAt to ISODate format
+        const expiresAtISO = expiresAt.toISOString();
 
         // Update the session field in the user document
         await UserSchema.updateOne(
             { _id: newUser._id },
             {
                 $set: {
-                    'session.signedInAt': signedInAt,
-                    'session.expiresAt': expiresAt,
-                    'session.token': token,
+                    session: { signedInAt: signedInAt },
+                    session: { expiresAt: expiresAtISO },
+                    session: { token: token },
                 },
             }
         );
@@ -127,7 +137,7 @@ router.post("/api/registerUser", async (req, res) => {
             token,
             session: {
                 signedInAt,
-                expiresAt,
+                // expiresAt,
                 token, // This could be a session token if needed
             },
         });

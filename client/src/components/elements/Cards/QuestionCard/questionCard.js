@@ -76,12 +76,12 @@ export const QuestionCard = ({ question, index, community, scope, }) => {
     let profileImage = returnProfileImage(questioner?.profileImage, images)
     let profileImageIcon = returnProfileImage("65439993cd6293a690be6859", images)
     useEffect(() => {
-        console.log("PROFF IMG", questioner?.profileImage)
+        // console.log("PROFF IMG", questioner?.profileImage)
     })
 
     return (
         <div className='questionWrap'>
-            {isOptionsVisible && <CardOptions question={question} scope={scope} state={getOptionVisibilityState} />}
+            {isOptionsVisible && <CardOptions question={question} scope={scope} user={loggedInUser} state={getOptionVisibilityState} />}
             {/* {<UserSummary />} */}
             <div className='questionTop'>
                 <div className='questionTopLeft' onClick={navigateToProfile}>

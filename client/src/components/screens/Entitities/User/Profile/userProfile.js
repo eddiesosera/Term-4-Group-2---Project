@@ -51,8 +51,38 @@ export const UserProfile = ({ user, users, communities, questio, answers, replie
     }
 
     // Reliable score
-    const generateReliableScore = () => {
+    const generateReliableScore = (user) => {
+        // Get the number of questions and answers
+        const totalQuestions = user?.questions?.length;
+        const totalAnswers = user?.answers?.length;
 
+        // Calculate total points for questions and answers
+        const questionPoints = totalQuestions * 2;
+        const answerPoints = totalAnswers * 2;
+
+        // Calculate total points for upvotes (considering unique users)
+        const upvotedUsers = new Set();
+        userQuestions(questions, id)?.forEach(question => {
+            question?.upVotes?.forEach(user => upvotedUsers.add(user));
+        });
+        // user.answers.forEach(answer => {
+        //     answer.upvotes.forEach(user => upvotedUsers.add(user));
+        // });
+        const totalUpvotes = upvotedUsers.size;
+        const upvotePoints = totalUpvotes * 2;
+
+        // Calculate total points for just having a question or answer
+        const engagementPoints = totalQuestions //+ totalAnswers;
+
+        // Calculate total user score
+        const totalPoints = questionPoints + answerPoints + upvotePoints + engagementPoints;
+
+        // Calculate percentage score based on total possible points (assuming limitless questions and upvotes)
+        // You can adjust the maximum possible points based on your preference
+        const maxPossiblePoints = 10000; // Assuming a high value for the maximum possible points
+        const percentageScore = ((totalPoints / maxPossiblePoints) * 100) * 100;
+
+        return percentageScore;
     }
 
     const userInfo = [
@@ -60,7 +90,7 @@ export const UserProfile = ({ user, users, communities, questio, answers, replie
             // Reliable score
             icon: "recommend",
             info: "reliable",
-            preInfo: "33%",
+            preInfo: generateReliableScore(loggedInUser) + '%',
         },
         {
             // Date User Joined
@@ -82,6 +112,7 @@ export const UserProfile = ({ user, users, communities, questio, answers, replie
         // console.log("logged in user: ", loggedInUser)
 
         // id === "me" && !loggedInUser?.username && navigateTo("/onboarding")
+        console.log('SCORE', generateReliableScore(loggedInUser))
 
     }, [selectedUserContent, questions, useInteraction()])
 
