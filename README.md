@@ -28,7 +28,7 @@
     <a href="https://github.com/eddiesosera/codegenius/blob/main/"><strong>Explore the docs</strong></a>
     <br />
     <br />
-    <a href="add The demo Video Link here">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=K2TSUsroUAA">View Demo</a>
     ·
     <a href="https://github.com/eddiesosera/codegenius/issues">Report Bug</a>
     ·
