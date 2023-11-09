@@ -14,7 +14,7 @@
 
 <div align="center">
   <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
-    <img src="https://github.com/eddiesosera/codegenius/blob/main/client/src/components/assets/readme/header.png" 
+    <img src=[header]
     alt="CodeGenius Header" width="200" height="auto">
   </a>
 
@@ -23,7 +23,7 @@
   <p align="center">
     The Future of Development QNA for anyone with a Coding problem 
     <br />
-    <a href="https://github.com/CSWilder02/Term-4-Group-2---Project/tree/main/Class%20Work"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/eddiesosera/codegenius/blob/main/"><strong>Explore the docs</strong></a>
     <br />
     <br />
     <a href="add The demo Video Link here">View Demo</a>
@@ -98,7 +98,8 @@ add Ui designs here
     <br>
     <sub>eddie Sosera</sub>
   </div>
-  
+  <br />
+
   <div style="text-align: center;">
     <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
       <img src="https://github.com/CSWilder02.png" alt="CS Strijdom" width="100px">
@@ -106,6 +107,7 @@ add Ui designs here
     <br>
     <sub>CS Strijdom</sub>
   </div>
+  <br />
   
   <div style="text-align: center;">
     <a href="https://github.com/DupieM/Term-4-Group-2---Project">
@@ -114,6 +116,7 @@ add Ui designs here
     <br>
     <sub>Mariné Du Plessis</sub>
   </div>
+  <br />
   
   <div style="text-align: center;">
     <a href="https://github.com/BladeyBoy54/Term-4-Group-2---Project">
@@ -122,13 +125,24 @@ add Ui designs here
     <br>
     <sub>Bladen Lehnberg</sub>
   </div>
+  <br />
+
 </div>
 
 ---Link to other dependencies and tutorials---
 
 ## Features
 
-#### 1. **Profiles and Reliability Scores**
+### Login and authentication
+
+<a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
+    <img src="https://github.com/eddiesosera/codegenius/blob/main/client/src/components/assets/readme/header.png" 
+    alt="CodeGenius Header" width="200" height="auto">
+  </a>
+
+The login screen enables admin users to log into the curious creative and remain logged in. With password encryption, this should be a breeze. The user can also choose to stay logged in and this is stored in preferences
+
+<!-- #### 1. **Profiles and Reliability Scores**
 
 CodeGenius offers user profiles that allow individuals to showcase their expertise, track their progress, and highlight their achievements. This feature promotes a sense of community and motivates users to actively participate in the platform.
 
@@ -146,9 +160,11 @@ Users can post questions related to software development, coding, or any other r
 
 #### 5. **Saving and Commenting**
 
-CodeGenius allows users to save their favorite questions for future reference. Additionally, the commenting feature encourages interactive discussions, making it easy to exchange ideas, provide clarifications, and gain deeper insights into various topics.
+CodeGenius allows users to save their favorite questions for future reference. Additionally, the commenting feature encourages interactive discussions, making it easy to exchange ideas, provide clarifications, and gain deeper insights into various topics. -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- RESOURCES USED LINK -->
 
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
@@ -169,3 +185,9 @@ CodeGenius allows users to save their favorite questions for future reference. A
 [stars]: https://img.shields.io/github/stars/CSWilder02/Term-4-Group-2---Project.svg?style=for-the-badge
 [stars-url]: https://github.com/CSWilder02/Term-4-Group-2---Project/stargazers
 [eddie-img]: https://github.com/eddiesosera.png
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[banner]: client/src/components/assets/readme/banner.png
+[header]: client/src/components/assets/readme/header.png
+[image3]: ReadMeImg/slide3.png
