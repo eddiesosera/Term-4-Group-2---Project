@@ -21,6 +21,7 @@
   <p align="center">
     CodeGenius is a Question-and-Answer forum for students and lecturers.
     <br />
+    <br />
     Eddie Sosera
     <br />
     <br />
@@ -51,11 +52,21 @@ CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dyn
 
 - [Installation](#installation)
 
-- [UI Designs](#ui-designs)
-
-- [Credits](#credits)
-
 - [Features](#features)
+
+- [Technical Functionality](#technical-functionality)
+
+- [Development Process](#development-process)
+
+- [Final Outcomes](#final-outcomes)
+
+- [Reporting Issues](#reporting-issues)
+
+- [Authors](#authors)
+
+- [Licenses](#licenses)
+
+- [Contact](#contact)
 
 ## Built With
 
@@ -73,7 +84,7 @@ CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dyn
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/CSWilder02/Term-4-Group-2---Project.git
+   git clone https://github.com/eddiesosera/codegenius.git
    ```
 2. Install NPM packages
    ```sh
@@ -94,33 +105,33 @@ CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dyn
 
 ## Features
 
-### Homescreen
+<!-- ### Homescreen -->
 
 ![Homescreen][home]
 The homescreen displays all the questions which you can filter by upvotes and time (by default it shows the latest). You can answer other people’s questions by clicking upvote.
 
-### Question Page
+<!-- ### Question Page -->
 
 ![Question][question]
 The question page allows users to give an answer to the question and they can browse through other answers for help.
 Users can also reply to answers.
 
-### Create Question
+<!-- ### Create Question -->
 
 ![Create Question][createquestion]
 The Create Question page allows users to create questions by filling in the form they can also add images with a size limit of 500kb.
 
-### Search Bar
+<!-- ### Search Bar -->
 
 ![Search Bar][searchbar]
 The search allows users to search anything from questions, users and topics. The most relevant results will be at the top. The orange button takes you to the question results page.
 
-### Search Results
+<!-- ### Search Results -->
 
 ![Search Results][searchresults]
 The question results displays more than 5 results as seen in the question bar. Additionally the user can filter the type of results.
 
-### User Profile
+<!-- ### User Profile -->
 
 ![User Profile][userprofile]
 The User Profile is a summary of the user’s information such reliability score, bio, questions asked, replies and answers.
@@ -129,10 +140,11 @@ The reliability score is generated based on the user’s number of questions and
 
 They have the option to edit their profile.
 
-### Admin
+<!-- ### Admin -->
 
 ![Admin][admin]
 The admin’s view gives the admin special permission to delete ant user’s question.
+<br/>
 <br/>
 
 #### Technical Funtionality
@@ -147,17 +159,18 @@ The admin’s view gives the admin special permission to delete ant user’s que
 <br/>
 <br/>
 
-<!-- DEVELOPMENT PROCESS -->
-
-## Development Proccess
-
-The `Development Process` the technical implementations and functionality done for the website.
-
-#### Object Mapping
-
 #### ERD
 
+<br/>
+<br/>
+
 ![Entity Relationship Diagram][erd]
+
+<!-- DEVELOPMENT PROCESS -->
+
+## Development Process
+
+The `Development Process` the technical implementations and functionality done for the website.
 
 #### Highlights
 
@@ -249,7 +262,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
       <img src="https://github.com/eddiesosera.png" alt="eddie Sosera" width="100px">
     </a>
     <br>
-    <sub>eddie Sosera</sub>
+    <sub>Eddie Sosera</sub>
   </div>
   <br />
 
@@ -289,7 +302,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
 
 ### License
 
-Distributed under the MIT License. See `LICENSE` for more information.\
+Distributed under the MIT License. See [License](https://opensource.org/license/mit/) for more information.\
 
 <br/>
 <br/>
@@ -298,7 +311,8 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 ### Contact
 
-- **Eddie Sosera** - [@eddiesosera](https://www.linkedin.com/eddiesosera/) - https://engineeredimagination.co.za
+**Linkein** - [@eddiesosera](https://www.linkedin.com/in/eddiesosera/),
+[Visit website](https://engineeredimagination.co.za)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
