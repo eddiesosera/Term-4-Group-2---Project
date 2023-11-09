@@ -21,8 +21,7 @@
   <p align="center">
     CodeGenius is a Question-and-Answer forum for students and lecturers.
     <br />
-    <br />
-    <br />
+ 
     Eddie Sosera
     <br />
     <br />
