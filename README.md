@@ -64,6 +64,8 @@ CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dyn
 - [![nodemon][nodemon]][nodemon-url]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- INSTALLATION -->
+
 ## Installation
 
 1. Clone the repo
@@ -85,54 +87,7 @@ CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dyn
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## UI Designs
-
-add Ui designs here
-
-## Credits
-
-#### Main Collaborators
-
-<div style="display: flex; justify-content: space-between;">
-  <div style="text-align: center;">
-    <a href="https://github.com/eddiesosera/Term-4-Group-2---Project">
-      <img src="https://github.com/eddiesosera.png" alt="eddie Sosera" width="100px">
-    </a>
-    <br>
-    <sub>eddie Sosera</sub>
-  </div>
-  <br />
-
-  <div style="text-align: center;">
-    <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
-      <img src="https://github.com/CSWilder02.png" alt="CS Strijdom" width="100px">
-    </a>
-    <br>
-    <sub>CS Strijdom</sub>
-  </div>
-  <br />
-  
-  <div style="text-align: center;">
-    <a href="https://github.com/DupieM/Term-4-Group-2---Project">
-      <img src="https://github.com/DupieM.png" alt="Mariné Du Plessis" width="100px">
-    </a>
-    <br>
-    <sub>Mariné Du Plessis</sub>
-  </div>
-  <br />
-  
-  <div style="text-align: center;">
-    <a href="https://github.com/BladeyBoy54/Term-4-Group-2---Project">
-      <img src="https://github.com/BladeyBoy54.png" alt="Bladen Lehnberg" width="100px">
-    </a>
-    <br>
-    <sub>Bladen Lehnberg</sub>
-  </div>
-  <br />
-
-</div>
-
----Link to other dependencies and tutorials---
+<!-- FEATURES -->
 
 ## Features
 
@@ -175,26 +130,146 @@ They have the option to edit their profile.
 
 ![Admin][admin]
 The admin’s view gives the admin special permission to delete ant user’s question.
+<br/>
 
-<!-- #### 1. **Profiles and Reliability Scores**
+#### Technical Funtionality
 
-CodeGenius offers user profiles that allow individuals to showcase their expertise, track their progress, and highlight their achievements. This feature promotes a sense of community and motivates users to actively participate in the platform.
+- `CRUD funtionality` on Questions, Answers, Replies(additional) and Users.
+- `Upvote and Downvote` questions.
+- `Search and Filter` Questions being displayed.
+- `Authentication` using password encryption library.
+- `Authorization` using tokens (JWTs).
+- `Reliability score` system based on interaction.
 
-#### 2. **Admin Rights**
+<br/>
 
-Administrators have the ability to manage the platform effectively. They can control user access, monitor content, and ensure that the community remains a safe and productive environment.
+<!-- DEVELOPMENT PROCESS -->
 
-#### 3. **User Security and Registration**
+## Development Proccess
 
-CodeGenius prioritizes user security by implementing robust registration and authentication mechanisms. User data is safeguarded, and the registration process ensures that only legitimate users can participate in the platform.
+The `Development Process` the technical implementations and functionality done for the website.
 
-#### 4. **Posting and Receiving Questions**
+#### Object Mapping
 
-Users can post questions related to software development, coding, or any other relevant topics. This feature enables a knowledge-sharing ecosystem where questions are easily accessible, and answers can be provided by both peers and educators.
+#### ERD
 
-#### 5. **Saving and Commenting**
+![Entity Relationship Diagram][erd]
 
-CodeGenius allows users to save their favorite questions for future reference. Additionally, the commenting feature encourages interactive discussions, making it easy to exchange ideas, provide clarifications, and gain deeper insights into various topics. -->
+#### Highlights
+
+The setup of the project was overal fun for me as I got the opportunity explore complex task like creating dynamic functions that work as a state store without using any library.
+
+#### Challenges
+
+Generally the project was not challenging as we did a similar project in our previous term, however the backend was a bit challenging as I had to tap in again with `Vanailla Javascript.`
+
+#### Object Mapping
+
+<!-- FINAL OUTCOMES -->
+
+## Final Outcomes
+
+[Demonstration Video](https://youtube.com)
+
+<!-- CONCLUSION -->
+
+## Conclusion
+
+#### How to Contribute
+
+1. **Fork the repository:**
+
+   - Fork this repository to your GitHub account.
+
+2. **Clone your fork:**
+
+   - Clone the repository to your local machine using the following command:
+     ```
+     git clone https://github.com/eddiesosera/codegenius.git
+     ```
+
+3. **Create a branch:**
+
+   - Create a new branch for your feature or bug fix:
+     ```
+     git checkout -b feature-branch
+     ```
+
+4. **Make your changes:**
+
+   - Make your desired changes in the codebase.
+
+5. **Test your changes:**
+
+   - Ensure that your changes do not introduce new issues.
+   - Run relevant tests if available.
+
+6. **Commit your changes:**
+
+   - Commit your changes with a descriptive commit message:
+     ```
+     git commit -m "Your informative commit message"
+     ```
+
+7. **Push your changes:**
+
+   - Push your changes to your forked repository:
+     ```
+     git push origin feature-branch
+     ```
+
+8. **Create a pull request:**
+   - Open a pull request against the `main` branch of the original repository.
+   - Provide a clear title and description for your pull request.
+
+<!-- REPORTING ISSUES -->
+
+### Reporting Isssues
+
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/your-username/your-project/issues) on GitHub.
+
+<!-- AUTHORS -->
+
+#### Authors
+
+<div style="display: flex; justify-content: space-between;">
+  <div style="text-align: center;">
+    <a href="https://github.com/eddiesosera/Term-4-Group-2---Project">
+      <img src="https://github.com/eddiesosera.png" alt="eddie Sosera" width="100px">
+    </a>
+    <br>
+    <sub>eddie Sosera</sub>
+  </div>
+  <br />
+
+  <div style="text-align: center;">
+    <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
+      <img src="https://github.com/CSWilder02.png" alt="CS Strijdom" width="100px">
+    </a>
+    <br>
+    <sub>CS Strijdom</sub>
+  </div>
+  <br />
+  
+  <div style="text-align: center;">
+    <a href="https://github.com/DupieM/Term-4-Group-2---Project">
+      <img src="https://github.com/DupieM.png" alt="Mariné Du Plessis" width="100px">
+    </a>
+    <br>
+    <sub>Mariné Du Plessis</sub>
+  </div>
+  <br />
+  
+  <div style="text-align: center;">
+    <a href="https://github.com/BladeyBoy54/Term-4-Group-2---Project">
+      <img src="https://github.com/BladeyBoy54.png" alt="Bladen Lehnberg" width="100px">
+    </a>
+    <br>
+    <sub>Bladen Lehnberg</sub>
+  </div>
+  <br />
+
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -231,3 +306,4 @@ CodeGenius allows users to save their favorite questions for future reference. A
 [searchresults]: client/src/components/assets/readme/features/codegenius_feature_searchResults.png
 [userprofile]: client/src/components/assets/readme/features/codegenius_feature_userProfile.png
 [admin]: client/src/components/assets/readme/features/codegenius_feature_admin.png
+[erd]: client/src/components/assets/readme/process/erd.png
