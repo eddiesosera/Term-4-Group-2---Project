@@ -22,6 +22,7 @@
     CodeGenius is a Question-and-Answer forum for students and lecturers.
     <br />
     <br />
+    <br />
     Eddie Sosera
     <br />
     <br />
@@ -36,9 +37,6 @@
   </p>
   <br />
 </div>
-
-<br/>
-<br/>
 
 ## About this Project
 
