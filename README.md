@@ -227,7 +227,7 @@ CodeGenius allows users to save their favorite questions for future reference. A
 [home]: client/src/components/assets/readme/features/codegenius_feature_home.png
 [question]: client/src/components/assets/readme/features/codegenius_feature_question.png
 [createquestion]: client/src/components/assets/readme/features/codegenius_feature_createQuestion.png
-[searchbar]: client/src/components/assets/readme/features/codegenius_feature_searchBar.png
+[searchbar]: client/src/components/assets/readme/features/codegenius_feature_searchbar.png
 [searchresults]: client/src/components/assets/readme/features/codegenius_feature_searchResults.png
 [userprofile]: client/src/components/assets/readme/features/codegenius_feature_userProfile.png
 [admin]: client/src/components/assets/readme/features/codegenius_feature_admin.png
