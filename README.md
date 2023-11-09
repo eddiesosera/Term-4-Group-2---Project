@@ -12,7 +12,7 @@
 
 #
 
-![header][header]
+![Banner][banner]
 
 <div align="center">
 
@@ -20,6 +20,8 @@
 
   <p align="center">
     The Future of Development QNA for anyone with a Coding problem 
+    <br />
+    Eddie Sosera
     <br />
     <a href="https://github.com/eddiesosera/codegenius/blob/main/"><strong>Explore the docs</strong></a>
     <br />
@@ -34,6 +36,7 @@
 </div>
 
 ## About this Project
+![][]
 
 CodeGenius is a robust and fully-developed Full MERN Stack Application that serves as a dynamic platform for fostering collaboration between students and lecturers. With a focus on facilitating the exchange of development-specific knowledge and expertise, CodeGenius empowers users to post questions, provide answers, and engage in a rich learning environment.
 
