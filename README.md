@@ -229,12 +229,16 @@ Generally the project was not challenging as we did a similar project in our pre
    - Open a pull request against the `main` branch of the original repository.
    - Provide a clear title and description for your pull request.
 
+<br/>
+<br/>
 <!-- REPORTING ISSUES -->
 
 ### Reporting Isssues
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/eddiesosera/codegeniust/issues) on GitHub.
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/eddiesosera/codegenius/issues) on GitHub.
 
+<br/>
+<br/>
 <!-- AUTHORS -->
 
 ### Authors
@@ -277,6 +281,24 @@ If you encounter any issues or have suggestions, please [open an issue](https://
   <br />
 
 </div>
+
+<br/>
+<br/>
+
+<!-- LICENSE -->
+
+### License
+
+Distributed under the MIT License. See `LICENSE` for more information.\
+
+<br/>
+<br/>
+
+<!-- LICENSE -->
+
+### Contact
+
+- **Eddie Sosera** - [@eddiesosera](https://www.linkedin.com/eddiesosera/) - https://engineeredimagination.co.za
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
