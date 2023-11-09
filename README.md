@@ -14,7 +14,8 @@
 
 <div align="center">
   <a href="https://github.com/CSWilder02/Term-4-Group-2---Project">
-    <img src="Class Work\Logo\CodeGeniusLogoFull.svg" alt="CodeGenius </>" width="200" height="auto">
+    <img src="https://github.com/eddiesosera/codegenius/blob/main/client/src/components/assets/readme/header.png" 
+    alt="CodeGenius Header" width="200" height="auto">
   </a>
 
   <h3 align="center">CodeGenius </h3>
