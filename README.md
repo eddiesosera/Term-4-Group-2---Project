@@ -12,7 +12,7 @@
 
 #
 
-![Header][header]
+![Banner][banner]
 
 <div align="center">
 
@@ -39,7 +39,7 @@
 
 ## About this Project
 
-![Banner][banner]
+![Header][header]
 
 CodeGenius is a robust MERN Stack Question-and-Answer forum that serves as a dynamic platform for fostering collaboration between students and lecturers. With a focus on facilitating the exchange of development-specific knowledge and expertise, CodeGenius empowers users to post questions, provide answers, and engage in a rich learning environment.
 
