@@ -8,12 +8,12 @@ const LoggedInContext = createContext("");
 
 // Current User Logged In
 export const LoggedInUserProvider = ({ children }) => {
-    const initialUser = sessionStorage.getItem("user");
+    const initialUser = localStorage.getItem("user");
     const [loggedInUser, setLoggedInUser] = useState({});
     const interaction = useInteraction();
 
     useEffect(() => {
-        if (sessionStorage.getItem("user") !== null) {
+        if (localStorage.getItem("user") !== null) {
             if (initialUser) {
                 try {
                     let user = JSON.parse(initialUser)
@@ -41,11 +41,11 @@ export const useLoggedInUser = () => {
 
 // Token
 export const TokenProvider = ({ children }) => {
-    const initialToken = sessionStorage.getItem("token");
+    const initialToken = localStorage.getItem("token");
     const [token, setToken] = useState(initialToken);
 
     useEffect(() => {
-        if (sessionStorage.getItem("token") !== null) {
+        if (localStorage.getItem("token") !== null) {
             if (initialToken) {
                 try {
                     setToken(initialToken)
@@ -70,11 +70,11 @@ export const useToken = () => {
 
 // Logged In status
 export const LoggedInProvider = ({ children }) => {
-    const initialIsLoggedIn = sessionStorage.getItem("loggedIn");
+    const initialIsLoggedIn = localStorage.getItem("loggedIn");
     const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
 
     useEffect(() => {
-        if (sessionStorage.getItem("loggedIn") !== null) {
+        if (localStorage.getItem("loggedIn") !== null) {
             if (initialIsLoggedIn) {
                 try {
                     let status = JSON.parse(initialIsLoggedIn)

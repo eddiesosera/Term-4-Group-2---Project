@@ -30,7 +30,7 @@ export const Form = ({ fields, initialValues, onSubmit, onCancel }) => {
                             <button style={{ width: "100%" }} className='button-primary form-btn' type="submit">{fields[btnIndex]?.submitLabel}</button>
                         </div>
                         <div style={{ width: "" }}>
-                            <button style={{ width: "fit-content" }} className='button-secondary form-btn' onClick={e => { onCancel("register") }}>{fields[btnIndex]?.cancelLabel}</button>
+                            <button style={{ width: "max-content" }} className='button-secondary form-btn' onClick={e => { onCancel("register") }}>{fields[btnIndex]?.cancelLabel}</button>
                         </div>
                     </div>
                 )

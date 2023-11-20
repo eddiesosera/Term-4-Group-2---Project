@@ -11,7 +11,7 @@ export const NavBar = ({ user, users }) => {
     const navigatTo = useNavigate();
     const { id } = useParams();
     const [username, setUsername] = useState("Eddie");
-    const [loggenIn, setLoggedIn] = useState(sessionStorage.getItem("loggedIn"));
+    const [loggenIn, setLoggedIn] = useState(localStorage.getItem("loggedIn"));
     const [currentPage, setCurrentPage] = useState('/');
     const [leftBarVisibilityTgl, setLeftBarVisibilityTgl] = useState(false)
 
@@ -24,9 +24,9 @@ export const NavBar = ({ user, users }) => {
     }
 
     useEffect(() => {
-        setLoggedIn(sessionStorage.getItem("loggedIn"));
+        setLoggedIn(localStorage.getItem("loggedIn"));
         // console.log(id)
-    }, [sessionStorage.getItem("loggedIn"), useInteraction()]);
+    }, [localStorage.getItem("loggedIn"), useInteraction()]);
 
 
     return (

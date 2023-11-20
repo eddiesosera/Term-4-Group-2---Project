@@ -17,7 +17,11 @@ export const AskQuestionWidget = () => {
         <div className='askQuestionWidgetWrap' onClick={e => navigateTo('/question/create')}>
             <div className='askQuestionLeftContainer'>
                 <div className='askQuestionUserContainer'>
-                    <img className='askQuestionUserImg' src={loggedInUser?.profileImage} />
+                    {
+                        !loggedInUser?.profileImage
+                            ? <img className='askQuestionUserImg' src={staticProfileImg} />
+                            : <img className='askQuestionUserImg' src={loggedInUser?.profileImage} />
+                    }
                     <div className='askQuestionUserOnlineStatus' />
                 </div>
                 <div className='askQuestionInput text-normal'>What do you need help with?</div>

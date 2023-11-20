@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import './question.css'
 import { useParams } from 'react-router-dom';
 import { CreateQuestion } from './CRUD/createQuestion';
@@ -27,6 +28,7 @@ export const QuestionPage = () => {
     const { questions } = useQuestions();
     const { replies } = useReplies();
     const { user } = useLoggedInUser();
+    const loggedIn = localStorage.getItem("loggedIn");
     const { users } = useUsers();
     const { token } = useToken();
     const { id } = useParams();
@@ -111,6 +113,7 @@ export const QuestionPage = () => {
                 <div className="AddComment-box" >
                     {isPostAnswerVisible &&
                         <textarea rows="4" cols="50" value={answerText} onChange={e => { setAnswerText(e.target.value) }}
+                            onClick={e => { }}
                             placeholder="Write your comment here..." />
                     }
                     <br />

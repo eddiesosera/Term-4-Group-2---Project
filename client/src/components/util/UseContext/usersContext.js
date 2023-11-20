@@ -17,12 +17,12 @@ export const UsersProvider = ({ children }) => {
 
     useEffect(() => {
         // Initialize users from session storage
-        const storedUsers = sessionStorage.getItem('users');
+        // const storedUsers = sessionStorage.getItem('users');
         requestDataOf
             .request("get", "getUsers", token, "")
             .then((response) => {
                 const newUsers = response?.data;
-                sessionStorage.setItem('users', JSON.stringify(newUsers));
+                // sessionStorage.setItem('users', JSON.stringify(newUsers));
                 setUsers(newUsers);
             });
     }, [

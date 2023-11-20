@@ -26,9 +26,9 @@ export const OnBoarding = ({ user, users }) => {
         requestDataOf.request("post", "loginUser", '', loginData)
             .then((response) => {
                 let res = response?.data
-                sessionStorage.setItem("loggedIn", "true");
-                sessionStorage.setItem("user", JSON.stringify(res?.user));
-                sessionStorage.setItem("token", res?.token);
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("user", JSON.stringify(res?.user));
+                localStorage.setItem("token", res?.token);
                 setLoggedInUser(res?.user);
                 setToken(res?.token)
                 navigate('/'); // Navigate to the "Home" page
@@ -43,9 +43,9 @@ export const OnBoarding = ({ user, users }) => {
         // e?.preventDefault()
         requestDataOf.request("post", "registerUser", '', registerData)
             .then((response) => {
-                sessionStorage.setItem("loggedIn", "true");
-                sessionStorage.setItem("user", JSON.stringify(response?.data?.user));
-                sessionStorage.setItem("token", response?.data?.token);
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("user", JSON.stringify(response?.data?.user));
+                localStorage.setItem("token", response?.data?.token);
                 setLoggedInUser(response?.data?.user);
                 setToken(response?.data?.token)
             })

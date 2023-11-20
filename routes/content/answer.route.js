@@ -25,13 +25,13 @@ router.post("/api/createAnswer", verifyToken, async (req, res) => {
 })
 
 // Read All Answers
-router.get("/api/getAnswers", verifyToken, async (req, res) => {
+router.get("/api/getAnswers", async (req, res) => {
     const findAnswers = await AnswerSchema.find()?.sort({ dateAnswered: -1 });
     res.json(findAnswers)
 });
 
 // Read Single Answer
-router.get("/api/answer/:id", verifyToken, async (req, res) => {
+router.get("/api/answer/:id", async (req, res) => {
     const findAnswer = await AnswerSchema.findById(req.params.id)
     res.json(findAnswer)
 })

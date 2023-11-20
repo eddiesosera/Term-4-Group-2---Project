@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, createContext, } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, useParams, useLocation } from 'react-router-dom';
 import PrivateRoute from './components/util/Routes/privateRoute';
 import getDataOf from './components/util/DataRequests/fetchData';
 
@@ -8,12 +8,14 @@ import './css/colors.css';
 import './css/components.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/css';
+// import './output.css'
 
 // require('dotenv/config');
 
 // Use Context Providers
 import { NavBar } from './components/elements/Navbar/navBar';
 import { Home } from './components/screens/Home/home';
+
 import { LoggedInUserProvider, TokenProvider, useLoggedInUser, useToken } from './components/util/UseContext/loggedInUserContext';
 import { UsersProvider, useUsers } from './components/util/UseContext/usersContext';
 import { QuestionsProvider, useQuestions } from './components/util/UseContext/questionsContext';
@@ -75,24 +77,29 @@ const AppContent = () => {
   const { replies, setReplies } = useReplies();
   const { topics, setTopics } = useTopics();
 
+  const pageLocation = useLocation().pathname;
+
   useEffect(() => {
-  }, [users])
+    console.log(pageLocation)
+  }, [users, pageLocation])
 
   return (
     <div className="App">
+      {/* <div style={{ display: pageLocation === "/home" && 'none' }}> */}
       <NavBar user={loggedInUser} users={users} />
+      {/* </div> */}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/#' element={<Landing />} />
+        <Route path='/home' element={<Landing />} />
         <Route path='/questions/:id' element={<Questions />} />
-        <Route path='/onboarding' element={<OnBoarding />} />
-        <Route path='/profile/:type/:id' element={<UserProfile />} />
-        <Route path='/account/:type/:id' element={<UserAccount />} />
+        <Route path='/onboarding' element={<OnBoarding><OnBoarding /></OnBoarding>} />
+        <Route path='/profile/:type/:id' element={<PrivateRoute><UserProfile /></PrivateRoute>} />
+        <Route path='/account/:type/:id' element={<PrivateRoute><UserAccount /></PrivateRoute>} />
         <Route path='/question/:id' element={<Question />} />
         <Route path='/answer/:id' element={<Answers />} />
         <Route path='/topic/:id' element={<Topics />} />
         <Route path='/search/:type/:query' element={<Search />} />
-        <Route path='/notification' element={<Notifications />} />
+        <Route path='/notification' element={<PrivateRoute><Notifications /></PrivateRoute>} />
         <Route path='*' element={<Error404 />} />
       </Routes>
     </div>

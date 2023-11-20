@@ -42,15 +42,15 @@ conn.once("open", () => {
 // });
 
 // Get All Images
-router.get("/api/images", verifyToken, async (req, res) => {
+router.get("/api/images", async (req, res) => {
     try {
-        const userId = req.user.userId;
-        if (userId || userId !== "") {
-            const findImage = await ImageSchema.find();
-            res.json(findImage);
-        } else {
-            res.json({ error: "Access denied. Please login or provide token." })
-        };
+        // const userId = req.user.userId;
+        // if (userId || userId !== "") {
+        const findImage = await ImageSchema.find();
+        res.json(findImage);
+        // } else {
+        // res.json({ error: "Access denied. Please login or provide token." })
+        // };
     } catch (error) {
         console.error("Error fetching images: ", error);
         res.status(500).json({ error: "Error fetching images." });

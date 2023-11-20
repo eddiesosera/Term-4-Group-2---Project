@@ -17,7 +17,7 @@ export const QuestionsProvider = ({ children }) => {
             .request("get", "getQuestions", token, "")
             .then((response) => {
                 const newQuestions = response?.data;
-                sessionStorage.setItem('questions', JSON.stringify(newQuestions));
+                // sessionStorage.setItem('questions', JSON.stringify(newQuestions));
                 setQuestions(newQuestions);
             });
     }, [token, interaction]); // Dependencies that trigger the initialization

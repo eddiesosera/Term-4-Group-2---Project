@@ -108,7 +108,7 @@ router.post("/api/createQuestion", verifyToken, upload.array("images", 10), asyn
 
 
 // Get All Questions
-router.get("/api/getQuestions", verifyToken, async (req, res) => {
+router.get("/api/getQuestions", async (req, res) => {
     try {
         const userId = req?.user?.userId;
         // const findQuestion = await QuestionSchema?.find()?.sort({ dateAsked: -1 }); //Filter from latest to newest

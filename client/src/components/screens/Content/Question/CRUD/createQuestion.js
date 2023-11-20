@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form } from '../../../../elements/Form/form';
 import requestDataOf from '../../../../util/DataRequests/fetchData';
 import { useLoggedInUser, useToken } from '../../../../util/UseContext/loggedInUserContext';
+import PrivateRoute from '../../../../util/Routes/privateRoute';
 
 export const CreateQuestion = () => {
     const { loggedInUser } = useLoggedInUser();
@@ -48,7 +49,7 @@ export const CreateQuestion = () => {
 
     return (
         <div>
-            <Form fields={fields} initialValues={initialValues} onSubmit={createQuestion} onCancel={cancelQuestion} />
+            <PrivateRoute><Form fields={fields} initialValues={initialValues} onSubmit={createQuestion} onCancel={cancelQuestion} /></PrivateRoute>
         </div>
     )
 }

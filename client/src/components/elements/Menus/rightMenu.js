@@ -8,7 +8,7 @@ import { useInteraction } from '../../util/UI/interactionListener';
 export const RightMenu = () => {
     const navigateTo = useNavigate("");
     const [isRightBarActive, setIsRightBarActive] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(sessionStorage.getItem("loggedIn"));
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("loggedIn"));
     const { loggedInUser, setLoggedInUser } = useLoggedInUser();
 
     const [sectionItems, setsectionItems] = useState([
@@ -49,7 +49,7 @@ export const RightMenu = () => {
 
     useEffect(() => {
         // console.log(isLoggedIn)
-        setIsLoggedIn(sessionStorage.getItem('loggedIn'));
+        setIsLoggedIn(localStorage.getItem('loggedIn'));
         // console.log(loggedInUser)
         // loggedInUser && loggedInUser?.username ? setIsLoggedIn("true") : setIsLoggedIn("false")
     }, [isRightBarActive, isLoggedIn, useInteraction(), loggedInUser]);
@@ -171,9 +171,9 @@ export const RightMenu = () => {
                         </span>
                         <div className='sideBarSectionTitle font-heading color-danger'
                             onClick={e => {
-                                sessionStorage.setItem('loggedIn', 'false');
-                                sessionStorage.setItem('user', '');
-                                sessionStorage.setItem('token', '');
+                                localStorage.setItem('loggedIn', 'false');
+                                localStorage.setItem('user', '');
+                                localStorage.setItem('token', '');
                                 // setIsLoggedIn("false");
                                 setLoggedInUser({})
                                 setIsRightBarActive(false);

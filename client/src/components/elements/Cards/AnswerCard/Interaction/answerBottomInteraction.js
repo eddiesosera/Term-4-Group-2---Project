@@ -154,7 +154,7 @@ export const AnswerBottomButtons = ({ question, feedback, index }) => {
                 .then((response) => {
                     const user = response?.data?.user;
                     console.log('Updated User:', user); // Add this line for debugging
-                    sessionStorage.setItem('user', JSON.stringify(user));
+                    localStorage.setItem('user', JSON.stringify(user));
                     alert("Question removed from saved");
                 })
                 .catch((error) => {
@@ -172,7 +172,7 @@ export const AnswerBottomButtons = ({ question, feedback, index }) => {
                 .then((response) => {
                     const user = response?.data?.user;
                     console.log('Updated User:', user); // Add this line for debugging
-                    sessionStorage.setItem('user', JSON.stringify(user));
+                    localStorage.setItem('user', JSON.stringify(user));
                     alert("Question saved");
                 })
                 .catch((error) => {

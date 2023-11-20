@@ -71,13 +71,13 @@ router.post("/api/loginUser", async (req, res) => {
 });
 
 //Get All User
-router.get("/api/getUsers", verifyToken, async (req, res) => {
+router.get("/api/getUsers", async (req, res) => {
     const findUser = await UserSchema.find();
     res.json(findUser);
 });
 
 //Get Single User
-router.get("/api/getUser/:id", verifyToken, async (req, res) => {
+router.get("/api/getUser/:id", async (req, res) => {
     const findUser = await UserSchema.findById(req.params.id);
     res.json(findUser);
 });
@@ -85,10 +85,10 @@ router.get("/api/getUser/:id", verifyToken, async (req, res) => {
 // Create User
 router.post("/api/registerUser", async (req, res) => {
     const userDetails = req.body;
+
     if (!userDetails || !userDetails.password) {
         return res.status(400).json({ error: 'Invalid request. Please provide a password.' });
     }
-    const hashedPassword = await bcrypt.hash(userDetails.password, 10);
 
     try {
         // Hash the user's password before storing it in the database
@@ -97,37 +97,39 @@ router.post("/api/registerUser", async (req, res) => {
         // Create a new user using the UserSchema
         const newUser = new UserSchema({
             username: userDetails.username,
-            password: hashedPassword, // Store the hashed password
-            // Add other user details as needed
+            password: hashedPassword,
         });
 
         await newUser.save();
 
         // Exclude the 'password' property from the user object
-        const { password, ...userWithoutPassword } = newUser._doc;
+        const { password, ...userWithoutPassword } = newUser.toObject(); // Use toObject to get a plain JavaScript object
 
         // Generate a JWT token
         const token = jwt.sign({ userId: newUser._id, role: newUser.role }, secretKey, { expiresIn: "1h" });
-
         // Create session-related items
         const signedInAt = new Date();
-        const expiresAt = new Date(signedInAt);
-        if (isNaN(expiresAt)) {
-            return res.status(400).json({ error: 'Invalid date format for expiresAt.' });
+        const expiresAt = new Date();
+        expiresAt.setHours(expiresAt.getHours() + 4);
+
+        // Check if expiresAt is a valid date
+        if (isNaN(expiresAt.getTime())) {
+            console.error('Error: Invalid date for expiresAt');
+            return res.status(500).json({ error: 'Failed to create user. Invalid date for expiresAt.' });
         }
 
-        expiresAt.setHours(expiresAt.getHours() + 4);
         // Convert expiresAt to ISODate format
         const expiresAtISO = expiresAt.toISOString();
+
 
         // Update the session field in the user document
         await UserSchema.updateOne(
             { _id: newUser._id },
             {
                 $set: {
-                    session: { signedInAt: signedInAt },
-                    session: { expiresAt: expiresAtISO },
-                    session: { token: token },
+                    'session.signedInAt': signedInAt,
+                    'session.expiresAt': expiresAtISO,
+                    'session.token': token,
                 },
             }
         );
@@ -137,8 +139,8 @@ router.post("/api/registerUser", async (req, res) => {
             token,
             session: {
                 signedInAt,
-                // expiresAt,
-                token, // This could be a session token if needed
+                expiresAt,
+                token,
             },
         });
     } catch (error) {

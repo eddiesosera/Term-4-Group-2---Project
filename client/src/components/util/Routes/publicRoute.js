@@ -2,13 +2,13 @@ import { React, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
-    const loggedIn = localStorage.getItem("loggedIn")
+    const loggedIn = localStorage?.getItem("loggedIn")
 
     useEffect(() => {
     }, [loggedIn])
 
     return (
-        loggedIn === "true" ? children : <Navigate to="/onboarding" />
+        loggedIn === "true" && <Navigate to="/" />
         // children
     )
 };
