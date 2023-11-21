@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import requestDataOf from '../../../../../util/DataRequests/fetchData';
 import { useInteraction } from '../../../../../util/UI/interactionListener';
 import { useNavigate } from 'react-router-dom';
 import { useLoggedInUser, useToken } from '../../../../../util/UseContext/loggedInUserContext';
+// import Snackbar from '@mui/joy/Snackbar/Snackbar';
+import { Button, message } from 'antd';
+import './bottomButtons.css'
+
 
 export const BottomButtons = ({ question, index }) => {
-
+    const pageLocation = useLocation()
     const navigatTo = useNavigate();
     const [upVote, setUpVote] = useState(false);
     const [downVote, setDownVote] = useState(false);
@@ -13,21 +18,19 @@ export const BottomButtons = ({ question, index }) => {
     const { token } = useToken();
     const { loggedInUser } = useLoggedInUser();
 
-    useEffect(() => {
-        // index && console.log(index);
+    const [messageApi, contextHolder] = message.useMessage();
+    const key = 'updatable';
 
+    useEffect(() => {
         // Upvote State Check
         for (let i = 0; i < question?.topics?.length; i++) {
             if (question?.upVotes[i] === loggedInUser?._id) {
                 setUpVote(prevUpVote => {
-                    // Use a callback function to get the previous state and update it
-                    // console.log(`UpVoteState: ${index}`, prevUpVote); // Log the updated value
                     return true; // Update the state to the opposite value
                 });
-                // break;
             }
         }
-    }, [useInteraction()])
+    }, [useInteraction(), upVote, downVote, saved, pageLocation, loggedInUser])
 
     // Button Functions
     const handleUpvote = () => {
@@ -48,42 +51,49 @@ export const BottomButtons = ({ question, index }) => {
         // Check if the user has already upvoted the question
         const userUpvotedIndex = question?.upVotes.indexOf(loggedInUser?._id);
 
-        if (userUpvotedIndex !== -1) {
-            // If the user has already upvoted, remove their upvote
-            const updatedUpVotes = [...question.upVotes.slice(0, userUpvotedIndex), ...question.upVotes.slice(userUpvotedIndex + 1)];
-            const upVotePayload = { upVotes: updatedUpVotes };
+        if (loggedInUser && localStorage.getItem('user')) {
+            if (userUpvotedIndex !== -1) {
+                // If the user has already upvoted, remove their upvote
+                const updatedUpVotes = [...question.upVotes.slice(0, userUpvotedIndex), ...question.upVotes.slice(userUpvotedIndex + 1)];
+                const upVotePayload = { upVotes: updatedUpVotes };
 
-            // Update the question with the new upvotes array
-            requestDataOf
-                .request("patch", `updateQuestion/${question?._id}`, token, upVotePayload)
-                .then((response) => {
-                    setUpVote(false)
-                    // Handle the response if necessary
-                    alert("Upvote removed");
-                })
-                .catch((error) => {
-                    // Handle the error if necessary
-                    console.error(error);
-                });
+                // Update the question with the new upvotes array
+                requestDataOf
+                    .request("patch", `updateQuestion/${question?._id}`, token, upVotePayload)
+                    .then((response) => {
+                        setUpVote(false)
+                        // Handle the response if necessary
+                        // alert("Upvote removed");
+                        openMessage('upvote')
+                    })
+                    .catch((error) => {
+                        // Handle the error if necessary
+                        console.error(error);
+                    });
+            } else {
+                setUpVote(true)
+                // If the user hasn't upvoted, add their upvote
+                const updatedUpVotes = [...question.upVotes, loggedInUser?._id];
+                const upVotePayload = { upVotes: updatedUpVotes };
+
+                // Update the question with the new upvotes array
+                requestDataOf
+                    .request("patch", `updateQuestion/${question?._id}`, token, upVotePayload)
+                    .then((response) => {
+                        setUpVote(true)
+                        // Handle the response if necessary
+                        // alert("Upvoted");
+                        openMessage('upvote')
+                    })
+                    .catch((error) => {
+                        // Handle the error if necessary
+                        console.error(error);
+                    });
+            }
         } else {
-            setUpVote(true)
-            // If the user hasn't upvoted, add their upvote
-            const updatedUpVotes = [...question.upVotes, loggedInUser?._id];
-            const upVotePayload = { upVotes: updatedUpVotes };
-
-            // Update the question with the new upvotes array
-            requestDataOf
-                .request("patch", `updateQuestion/${question?._id}`, token, upVotePayload)
-                .then((response) => {
-                    setUpVote(true)
-                    // Handle the response if necessary
-                    alert("Upvoted");
-                })
-                .catch((error) => {
-                    // Handle the error if necessary
-                    console.error(error);
-                });
+            alert('Sign in to Interact with Questions')
         }
+
     };
 
     const updateDownVotes = () => {
@@ -105,7 +115,8 @@ export const BottomButtons = ({ question, index }) => {
                 .then((response) => {
                     setDownVote(false);
                     // Handle the response if necessary
-                    alert("Downvote removed");
+                    // alert("Downvote removed");
+                    openMessage('downvote')
                 })
                 .catch((error) => {
                     // Handle the error if necessary
@@ -123,7 +134,8 @@ export const BottomButtons = ({ question, index }) => {
                 .then((response) => {
                     setDownVote(true);
                     // Handle the response if necessary
-                    alert("Downvoted");
+                    // alert("Downvoted");
+                    openMessage('downvote')
                 })
                 .catch((error) => {
                     // Handle the error if necessary
@@ -150,7 +162,8 @@ export const BottomButtons = ({ question, index }) => {
                     const user = response?.data?.user;
                     console.log('Updated User:', user); // Add this line for debugging
                     localStorage.setItem('user', JSON.stringify(user));
-                    alert("Question removed from saved");
+                    // alert("Question removed from saved");
+                    openMessage('saved');
                 })
                 .catch((error) => {
                     console.error(error);
@@ -168,7 +181,8 @@ export const BottomButtons = ({ question, index }) => {
                     const user = response?.data?.user;
                     console.log('Updated User:', user); // Add this line for debugging
                     localStorage.setItem('user', JSON.stringify(user));
-                    alert("Question saved");
+                    // alert("Question saved");
+                    openMessage('saved');
                 })
                 .catch((error) => {
                     console.error(error);
@@ -199,10 +213,131 @@ export const BottomButtons = ({ question, index }) => {
             interactionCount: question?.answers?.length,
             action: () => { navigatTo(`/question/${question?._id}`) }
         }
-    ]
+    ];
+
+
+    // Toaster
+    const openMessage = (content) => {
+        messageApi.open({
+            key,
+            type: 'loading',
+            content: 'Loading...',
+        });
+        setTimeout(() => {
+            switch (content) {
+                case 'upvote':
+                    if (findUser('upVote')) {
+                        messageApi.open({
+                            key,
+                            type: 'warning',
+                            content: 'Upvote removed',
+                            duration: 2,
+                            style: { background: 'none', fontFamily: 'Kanit' },
+                            // className: 'messageChild'
+                        });
+                    } else {
+                        messageApi.open({
+                            key,
+                            type: 'success',
+                            content: 'Upvoted',
+                            duration: 2,
+                            style: { background: 'none', fontFamily: 'Kanit' },
+                        });
+                    }
+
+                case 'downvote':
+                    if (findUser('downVote')) {
+                        messageApi.open({
+                            key,
+                            type: 'warning',
+                            content: 'Downvote removed',
+                            duration: 2,
+                            style: { background: 'none', fontFamily: 'Kanit' },
+                            // className: 'messageChild'
+                        });
+                    } else {
+                        messageApi.open({
+                            key,
+                            type: 'success',
+                            content: 'Downvoted',
+                            duration: 2,
+                            style: { background: 'none', fontFamily: 'Kanit' },
+                        });
+                    }
+
+                case 'saved':
+                    if (findUser('saved')) {
+                        messageApi.open({
+                            key,
+                            type: 'warning',
+                            content: 'Removed from Saved',
+                            duration: 2,
+                            style: { background: 'none', fontFamily: 'Kanit' },
+                            // className: 'messageChild'
+                        });
+                    } else {
+                        messageApi.open({
+                            key,
+                            type: 'success',
+                            content: 'Saved to Collection',
+                            duration: 2,
+                            style: { background: 'none', fontFamily: 'Kanit' },
+                        });
+                    }
+
+            }
+
+        }, 1000);
+    };
+
+
+    // Finding user in buttons
+    const findUser = (content) => {
+
+        const abstractContentSearch = (contentType) => {
+            console.log(loggedInUser, question)
+            for (let i = 0; i < contentType?.length; i++) {
+                console.log('colorMATCHED')
+                if (contentType[i] === loggedInUser?._id) {
+                    console.log('colorMATCHED')
+                    return true;
+                }
+            }
+        }
+
+        switch (content) {
+            case 'upVote':
+                if (abstractContentSearch(question?.upVotes)) { return true };
+            case 'downVote':
+                if (abstractContentSearch(question?.downVotes)) { return true };
+        }
+
+    }
+
+    // Function for changing button states
+    const stateButton = (button) => {
+        // if (loggedInUser && localStorage.getItem('user')) {
+        switch (button) {
+            case 'upVote':
+                if (findUser('upVote')) { return '#b9ff28' }
+                break;
+            case 'downVote':
+                if (findUser('downVote')) { return '#ff282d' }
+                break;
+            case 'comment':
+                return '#ff8328'
+        }
+        // } else {
+        //     // alert('Sign In to interact with questions')
+        //     return null
+        // }
+
+    };
+
 
     return (
         <div className='questionBtmInteractionsWrap'>
+            {contextHolder}
             <ul className='questionBtmRightInteraction'>
                 {
                     cardBtmInteractions?.map((interaction, i) => {
@@ -211,7 +346,9 @@ export const BottomButtons = ({ question, index }) => {
                                 onClick={interaction?.action}>
                                 <span className={
                                     upVote && interaction?.name === "upvote" ? 'material-icons material-icons.md-36 icon cardIconUpVoted' :
-                                        'material-icons material-icons.md-36 icon cardIcon'}>
+                                        'material-icons material-icons.md-36 icon cardIcon'}
+                                    style={{ color: stateButton(interaction?.name) }}
+                                >
                                     {interaction?.icon}
                                 </span>
                                 <div className='questionBtmRightInteraction-metrics text-normal'>

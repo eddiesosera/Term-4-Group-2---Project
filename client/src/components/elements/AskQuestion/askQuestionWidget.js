@@ -7,7 +7,7 @@ import { useLoggedInUser } from '../../util/UseContext/loggedInUserContext';
 export const AskQuestionWidget = () => {
     const { loggedInUser, setLoggedInUser } = useLoggedInUser();
     const navigateTo = useNavigate()
-    const staticProfileImg = "https://ucarecdn.com/89f9e618-9617-4ce3-8498-0842734f899f/-/preview/500x500/-/quality/smart_retina/-/format/auto/"
+    const staticProfileImg = "https://ucarecdn.com/5017923c-b477-40bd-9d3d-31edcf95da54/-/preview/500x500/-/quality/smart_retina/-/format/auto/"
 
     useEffect(() => {
         // console.log(loggedInUser)
