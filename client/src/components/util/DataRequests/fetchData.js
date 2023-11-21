@@ -4,7 +4,7 @@ const config = (method, endpoint, token, payload) => {
     const requestConfig = {
         method: method,
         maxBodyLength: Infinity,
-        url: `https://codegeniuss-9493c6d0482e.herokuapp.com//api/${endpoint}`,
+        url: `https://codegeniuss-9493c6d0482e.herokuapp.com/api/${endpoint}`,
         // url: `http://localhost:5000/api/${endpoint}`,
         headers: {
             'Content-Type': 'application/json',

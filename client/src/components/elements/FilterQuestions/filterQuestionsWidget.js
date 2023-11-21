@@ -72,7 +72,7 @@ export const FilterQuestionsWidget = ({ getFilter, getSort }) => {
                 {
                     sortings?.map((sort, i) => {
                         return (
-                            <div key={i} onClick={e => { setSortState(sort.name) }}
+                            <div key={i} onClick={e => { setSortState(sort?.name) }}
                                 className={`questionsSortItem ${sort?.name === sortState && `sortItem-active`}`}
                                 style={{
                                     display: sort?.name === "reset" && sortState === "reset" ? "none" : "flex"
