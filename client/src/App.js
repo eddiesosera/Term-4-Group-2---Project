@@ -80,7 +80,7 @@ const AppContent = () => {
   const pageLocation = useLocation().pathname;
 
   useEffect(() => {
-    console.log(pageLocation)
+    // console.log(pageLocation)
   }, [users, pageLocation])
 
   return (

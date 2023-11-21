@@ -5,7 +5,7 @@ import { useInteraction } from '../../../../../util/UI/interactionListener';
 import { useNavigate } from 'react-router-dom';
 import { useLoggedInUser, useToken } from '../../../../../util/UseContext/loggedInUserContext';
 // import Snackbar from '@mui/joy/Snackbar/Snackbar';
-import { Button, message } from 'antd';
+import { message } from 'antd';
 import './bottomButtons.css'
 import { useQuestions } from '../../../../../util/UseContext/questionsContext';
 import { useAnswers } from '../../../../../util/UseContext/answersContext';
@@ -137,6 +137,7 @@ export const BottomButtons = ({ question, index }) => {
                 .request("patch", `updateQuestion/${question?._id}`, token, downVotePayload)
                 .then((response) => {
                     setDownVote(true);
+                    setUpVote(false)
                     // Handle the response if necessary
                     // alert("Downvoted");
                     openMessage('downvote')
@@ -319,11 +320,11 @@ export const BottomButtons = ({ question, index }) => {
     const findUser = (content) => {
 
         const abstractContentSearch = (contentType) => {
-            console.log(loggedInUser, question)
+            // console.log(loggedInUser, question)
             for (let i = 0; i < contentType?.length; i++) {
-                console.log('colorMATCHED')
+                // console.log('colorMATCHED')
                 if (contentType[i] === loggedInUser?._id) {
-                    console.log('colorMATCHED')
+                    // console.log('colorMATCHED')
                     return true;
                 }
             }

@@ -58,24 +58,24 @@ const UserSchema = mongoose.Schema({
             type: String
         }]
     },
-    session: {
-        signedInAt: {
-            type: Date,
-            default: Date.now(),
-        },
-        expiresAt: {
-            type: Date,
-            default: function () {
-                // Set the expiresAt 4 hours after signedInAt
-                const expiresAtDate = new Date(this.signedInAt);
-                expiresAtDate.setHours(expiresAtDate.getHours() + 4);
-                return expiresAtDate;
-            },
-        },
-        token: {
-            type: String // Should be returned after logging in
-        },
-    }
+    // session: {
+    //     signedInAt: {
+    //         type: Date,
+    //         default: Date.now(),
+    //     },
+    //     expiresAt: {
+    //         type: Date,
+    //         default: function () {
+    //             // Set the expiresAt 4 hours after signedInAt
+    //             const expiresAtDate = new Date(this.signedInAt);
+    //             expiresAtDate.setHours(expiresAtDate.getHours() + 4);
+    //             return expiresAtDate;
+    //         },
+    //     },
+    // token: {
+    //     type: String // Should be returned after logging in
+    // },
+    // }
 });
 
 UserSchema.pre('save', async function (next) {

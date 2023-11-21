@@ -89,8 +89,8 @@ export const Form = ({ fields, initialValues, onSubmit, onCancel }) => {
     };
 
     useEffect(() => {
-        console.log(fields?.cancelLabel)
-        console.log(formValues)
+        // console.log(fields?.cancelLabel)
+        // console.log(formValues)
     }, [formValues, hover, listOfImages]);
 
 

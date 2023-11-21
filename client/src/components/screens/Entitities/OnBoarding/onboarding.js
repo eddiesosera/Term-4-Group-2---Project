@@ -5,6 +5,8 @@ import './onboarding.css';
 import { useLoggedInUser, useToken } from '../../../util/UseContext/loggedInUserContext';
 import requestDataOf from '../../../util/DataRequests/fetchData';
 import { Form } from '../../../elements/Form/form';
+import { message } from 'antd';
+import { useInteraction } from '../../../util/UI/interactionListener';
 
 export const OnBoarding = ({ user, users }) => {
     const { loggedInUser, setLoggedInUser } = useLoggedInUser();
@@ -16,23 +18,73 @@ export const OnBoarding = ({ user, users }) => {
     const loginFormRef = useRef();
     const loginHeadingRef = useRef();
     const loginTextRef = useRef();
+    const [loginStatus, setLoginStatus] = useState(false);
+    const [registerStatus, setRegisterStatus] = useState(false);
 
-    const [state, setState] = useState('login')
+    const [state, setState] = useState('login');
+
+    const [messageApi, contextHolder] = message.useMessage();
+    const key = 'updatable';
 
     useEffect(() => {
-    }, [loginData, registerData, loggedInUser, token, loginFormRef, state]);
+        loginStatus && openMessage('login')
+        registerStatus && openMessage('register')
+    }, [loginData, registerData, loggedInUser, token, loginFormRef, state, loginStatus, registerStatus, useInteraction()]);
+
+    // Toaster
+    const openMessage = (content) => {
+        messageApi.open({
+            key,
+            type: 'loading',
+            content: 'Loading...',
+        });
+        setTimeout(() => {
+            switch (content) {
+                case 'login':
+                    messageApi.open({
+                        key,
+                        type: 'success',
+                        content: 'Successfully Logged in',
+                        duration: 2,
+                        style: { background: 'none', fontFamily: 'Kanit' },
+                        // className: 'messageChild'
+                    });
+                case 'register':
+                    messageApi.open({
+                        key,
+                        type: 'success',
+                        content: 'Successully Created New Account',
+                        duration: 2,
+                        style: { background: 'none', fontFamily: 'Kanit' },
+                        // className: 'messageChild'
+                    });
+            }
+
+        }, 1000);
+    };
 
     const submitLogin = async (loginData) => {
         requestDataOf.request("post", "loginUser", '', loginData)
             .then((response) => {
-                let res = response?.data
+                let res = response?.data;
+
                 localStorage.setItem("loggedIn", "true");
                 localStorage.setItem("user", JSON.stringify(res?.user));
                 localStorage.setItem("token", res?.token);
+
                 setLoggedInUser(res?.user);
-                setToken(res?.token)
-                navigate('/'); // Navigate to the "Home" page
-                console.log(response)
+                setToken(res?.token);
+                setLoginStatus(true);
+
+                // console.log(loginStatus)
+
+                setTimeout(() => {
+                    console.log(loginStatus)
+                    setLoginStatus(false);
+                    navigate('/'); // Navigate to the "Home" page
+
+                }, 2500);
+
             })
             .catch((error) => {
                 console.log(error);
@@ -46,8 +98,16 @@ export const OnBoarding = ({ user, users }) => {
                 localStorage.setItem("loggedIn", "true");
                 localStorage.setItem("user", JSON.stringify(response?.data?.user));
                 localStorage.setItem("token", response?.data?.token);
+
                 setLoggedInUser(response?.data?.user);
-                setToken(response?.data?.token)
+                setToken(response?.data?.token);
+                setRegisterStatus(true);
+
+                setTimeout(() => {
+                    setRegisterStatus(false);
+                    navigate('/');
+                }, 2500);
+
             })
             .catch((error) => {
                 alert("Error: " + error);
@@ -109,7 +169,7 @@ export const OnBoarding = ({ user, users }) => {
 
     return (
         <div className='mainbg'>
-
+            {contextHolder}
             {state === "login"
                 ? <Form fields={fieldsLogin} onSubmit={submitLogin} onCancel={switchToRegister} />
                 : <Form fields={fieldsRegister} onSubmit={submitRegister} onCancel={switchToLogin} />

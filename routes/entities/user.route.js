@@ -108,40 +108,40 @@ router.post("/api/registerUser", async (req, res) => {
         // Generate a JWT token
         const token = jwt.sign({ userId: newUser._id, role: newUser.role }, secretKey, { expiresIn: "1h" });
         // Create session-related items
-        const signedInAt = new Date();
-        const expiresAt = new Date();
-        expiresAt.setHours(expiresAt.getHours() + 4);
+        // const signedInAt = new Date();
+        // const expiresAt = new Date();
+        // expiresAt.setHours(expiresAt.getHours() + 4);
 
-        // Check if expiresAt is a valid date
-        if (isNaN(expiresAt.getTime())) {
-            console.error('Error: Invalid date for expiresAt');
-            return res.status(500).json({ error: 'Failed to create user. Invalid date for expiresAt.' });
-        }
+        // // Check if expiresAt is a valid date
+        // if (isNaN(expiresAt.getTime())) {
+        //     console.error('Error: Invalid date for expiresAt');
+        //     return res.status(500).json({ error: 'Failed to create user. Invalid date for expiresAt.' });
+        // }
 
-        // Convert expiresAt to ISODate format
-        const expiresAtISO = expiresAt.toISOString();
+        // // Convert expiresAt to ISODate format
+        // const expiresAtISO = expiresAt.toISOString();
 
 
         // Update the session field in the user document
         await UserSchema.updateOne(
-            { _id: newUser._id },
-            {
-                $set: {
-                    'session.signedInAt': signedInAt,
-                    'session.expiresAt': expiresAtISO,
-                    'session.token': token,
-                },
-            }
+            // { _id: newUser._id },
+            // {
+            //     $set: {
+            //         'session.signedInAt': signedInAt,
+            //         'session.expiresAt': expiresAtISO,
+            //         'session.token': token,
+            //     },
+            // }
         );
 
         res.json({
             user: userWithoutPassword,
             token,
-            session: {
-                signedInAt,
-                expiresAt,
-                token,
-            },
+            // session: {
+            //     signedInAt,
+            //     expiresAt,
+            //     token,
+            // },
         });
     } catch (error) {
         console.error('Error creating user:', error);

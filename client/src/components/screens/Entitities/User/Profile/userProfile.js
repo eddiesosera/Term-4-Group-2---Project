@@ -90,7 +90,7 @@ export const UserProfile = ({ user, users, communities, questio, answers, replie
             // Reliable score
             icon: "recommend",
             info: "reliable",
-            preInfo: generateReliableScore(loggedInUser) + '%',
+            preInfo: generateReliableScore(loggedInUser).toFixed(1) + ' %',
         },
         {
             // Date User Joined
@@ -112,7 +112,7 @@ export const UserProfile = ({ user, users, communities, questio, answers, replie
         // console.log("logged in user: ", loggedInUser)
 
         // id === "me" && !loggedInUser?.username && navigateTo("/onboarding")
-        console.log('SCORE', generateReliableScore(loggedInUser))
+        // console.log('SCORE', generateReliableScore(loggedInUser))
 
     }, [selectedUserContent, questions, useInteraction()])
 
@@ -179,7 +179,7 @@ export const UserProfile = ({ user, users, communities, questio, answers, replie
                                 userInfo.map((info, i) => {
                                     return (
                                         <div key={i} className='userProfileAboutInfoContainerItm'>
-                                            <span className="material-icons  userProfileAboutInfoIcon">{info?.icon}</span>
+                                            <span className="material-icons userProfileAboutInfoIcon">{info?.icon}</span>
                                             <div className='userProfileAboutInfoDetail'>{info?.preInfo + " " + info?.info}</div>
                                         </div>
                                     )
