@@ -7,6 +7,8 @@ import { useLoggedInUser, useToken } from '../../../../../util/UseContext/logged
 // import Snackbar from '@mui/joy/Snackbar/Snackbar';
 import { Button, message } from 'antd';
 import './bottomButtons.css'
+import { useQuestions } from '../../../../../util/UseContext/questionsContext';
+import { useAnswers } from '../../../../../util/UseContext/answersContext';
 
 
 export const BottomButtons = ({ question, index }) => {
@@ -17,6 +19,8 @@ export const BottomButtons = ({ question, index }) => {
     const [saved, setSaved] = useState(false);
     const { token } = useToken();
     const { loggedInUser } = useLoggedInUser();
+    const { answers, setAnswers } = useAnswers();
+    const { questions } = useQuestions();
 
     const [messageApi, contextHolder] = message.useMessage();
     const key = 'updatable';
@@ -159,6 +163,7 @@ export const BottomButtons = ({ question, index }) => {
             requestDataOf
                 .request("patch", `updateUser/${loggedInUser._id}`, token, userPayload)
                 .then((response) => {
+                    setSaved(false);
                     const user = response?.data?.user;
                     console.log('Updated User:', user); // Add this line for debugging
                     localStorage.setItem('user', JSON.stringify(user));
@@ -178,6 +183,7 @@ export const BottomButtons = ({ question, index }) => {
             requestDataOf
                 .request("patch", `updateUser/${loggedInUser._id}`, token, userPayload)
                 .then((response) => {
+                    setSaved(true);
                     const user = response?.data?.user;
                     console.log('Updated User:', user); // Add this line for debugging
                     localStorage.setItem('user', JSON.stringify(user));
@@ -189,6 +195,24 @@ export const BottomButtons = ({ question, index }) => {
                 });
         }
     };
+
+
+    // FIND ANSWERS
+    const specificQuestion = questions.find((specificQuestion) => specificQuestion._id === question?._id);
+
+    const findAnswers = (answers) => {
+        let specificAnswersArray = []
+        if (answers) {
+            for (const answer of answers) {
+                if (answer?.question === question?._id) {
+                    specificAnswersArray.push(answer);
+                }
+            }
+        }
+        return specificAnswersArray
+    };
+
+    const specificAnswers = findAnswers(answers);
 
 
     // Card Bottom Interactions
@@ -210,7 +234,7 @@ export const BottomButtons = ({ question, index }) => {
         {
             name: 'comment',
             icon: "mode_comment",
-            interactionCount: question?.answers?.length,
+            interactionCount: specificAnswers?.length,
             action: () => { navigatTo(`/question/${question?._id}`) }
         }
     ];
@@ -266,7 +290,7 @@ export const BottomButtons = ({ question, index }) => {
                     }
 
                 case 'saved':
-                    if (findUser('saved')) {
+                    if (saved) {
                         messageApi.open({
                             key,
                             type: 'warning',
@@ -346,7 +370,9 @@ export const BottomButtons = ({ question, index }) => {
                                 onClick={interaction?.action}>
                                 <span className={
                                     upVote && interaction?.name === "upvote" ? 'material-icons material-icons.md-36 icon cardIconUpVoted' :
-                                        'material-icons material-icons.md-36 icon cardIcon'}
+                                        'material-icons material-icons.md-36 icon cardIcon'
+
+                                }
                                     style={{ color: stateButton(interaction?.name) }}
                                 >
                                     {interaction?.icon}
@@ -363,8 +389,10 @@ export const BottomButtons = ({ question, index }) => {
                 }
             </ul>
             <div className='questionBtmRightInteractionItem'
-                onClick={updateSaved}>
-                <span className='material-icons material-icons.md-36 icon'>
+                onClick={e => { updateSaved(); openMessage('saved') }}>
+                <span className='material-icons material-icons.md-36 icon'
+                    style={{ color: saved ? '#FF8328' : '' }}
+                >
                     {saved ? "bookmark_added" : "bookmark_add"}
                 </span>
             </div>

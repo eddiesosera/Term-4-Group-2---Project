@@ -22,8 +22,9 @@ export const AnswersProvider = ({ children }) => {
             .request("get", "getAnswers", token, "")
             .then((response) => {
                 const newAnswers = response?.data;
-                sessionStorage.setItem('questions', JSON.stringify(newAnswers));
+                sessionStorage.setItem('answers', JSON.stringify(newAnswers));
                 setAnswers(newAnswers);
+
             });
     }, [token, interaction]);
 
